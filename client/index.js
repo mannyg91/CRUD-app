@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
+    // fetch('http://l') //when document is loaded, get
     loadHTMLTable([]); //passes in empty array
 })
 
