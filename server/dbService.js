@@ -44,7 +44,28 @@ class DbService {
         } catch (error) {
             console.log(error);
         }
+
     }
-}
+
+    async insertNewName(name) {
+        try { 
+            const dateAdded = new Date();
+            const insertId = await new Promise((resolve, reject) => {
+                const query = "INSERT INTO names (name, date_added) VALUES (?,?);";     
+                
+                connection.query(query, [name, dateAdded] , (err, result) => {
+                    if (err) reject(new Error(err.message)); //creates error object that is caught by catch block
+                    resolve(result.insertId); //if not caught
+                })
+            });
+
+            // console.log(response);
+            return response;
+
+        } catch (error) {
+            console.log(error);
+        }
+    }
+ }
 
 module.exports = DbService; 

@@ -14,7 +14,7 @@ app.use(express.urlencoded({ extended : false }));
 
 // create
 app.post('/insert', (request, response) => {
-
+    const { name } = request.body;
 });
 
 
